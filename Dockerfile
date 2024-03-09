@@ -5,7 +5,7 @@ RUN apt-get -y install vim git
 
 WORKDIR /usr/local/bin
 RUN git clone https://github.com/stevejenkins/pihole-cloudsync.git
-RUN echo "!/bin/bash" > /usr/local/bin/cron-pihole-sync
+RUN echo "#!/bin/bash" > /usr/local/bin/cron-pihole-sync
 RUN echo '/usr/local/bin/pihole-cloudsync/pihole-cloudsync --$MODE' >> /usr/local/bin/cron-pihole-sync
 RUN chmod 0774 /usr/local/bin/cron-pihole-sync
 
