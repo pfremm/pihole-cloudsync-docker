@@ -7,7 +7,7 @@ WORKDIR /usr/local/bin
 RUN git clone https://github.com/stevejenkins/pihole-cloudsync.git
 RUN echo "#!/bin/bash" > /usr/local/bin/cron-pihole-sync
 RUN echo "source /etc/environment" >> /usr/local/bin/cron-pihole-sync
-RUN echo '/usr/local/bin/pihole-cloudsync/pihole-cloudsync --$MODE' >> /usr/local/bin/cron-pihole-sync
+RUN echo '/usr/local/bin/pihole-cloudsync/pihole-cloudsync --$MODE main' >> /usr/local/bin/cron-pihole-sync
 RUN chmod 0774 /usr/local/bin/cron-pihole-sync
 
 WORKDIR /etc/cron.d
