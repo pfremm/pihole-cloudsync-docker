@@ -1,7 +1,7 @@
 FROM pihole/pihole
-
-RUN apt-get -y update
-RUN apt-get -y install vim git
+#pihole changed to alpine
+RUN apk upgrade --no-cache
+RUN apk add vim git busybox-openrc
 
 WORKDIR /usr/local/bin
 RUN git clone https://github.com/stevejenkins/pihole-cloudsync.git
@@ -23,4 +23,4 @@ RUN crontab /etc/cron.d/pihole-cloudsync
 RUN touch /var/log/cron.log
 # Run the command on container startup
 ENTRYPOINT [ "" ]
-CMD cron && tail -f /var/log/cron.log
+CMD crond && tail -f /var/log/cron.log
